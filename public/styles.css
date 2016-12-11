@@ -1,0 +1,21 @@
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+#iframe {
+  position: absolute;
+  left: 250px;
+  top: 250px;
+}
+
+#canvas {
+  border:2px solid #000000;
+  display: block;
+  margin: 10px;
+}
+
+#imageID { 
+    overflow-y: scroll;
+    height: 600px;
+}
