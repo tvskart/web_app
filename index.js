@@ -65,6 +65,27 @@ app.post('/nn', (req, res) => {
   });
 });
 
+app.post('/svm', (req, res) => {
+  // console.log(req.body.img_data_url)
+  var img_data_url = [req.body.img_data_url];
+  var options = {
+    pythonPath: pythonPath,
+    args: img_data_url
+  };
+
+  PythonShell.run('./ai/svm_test.py', options, function (err, results) {
+    if (err) {
+      console.log(err);
+    } else {
+      // results is an array consisting of messages collected during execution
+      console.log('results:'+ results[results.length-1]);
+      res.json({
+        result: results[results.length-1]  
+      });
+    }
+  });
+});
+
 app.listen(3000, 'localhost', () => {
   console.log('App listening on http://localhost:3000');
 })
