@@ -19,8 +19,10 @@ for j in range(dim_img[0]):
             img_resized[j][n]=0
         else:
             img_resized[j][n]=1
-k=27
 skeleton = skeletonize(img_resized)
-train_images = get_image_data.get_training_skeleton_images()
-predicted_result=KNN(k, skeleton, train_images[:1])
+k=20
+train_images = get_image_data.get_training_skeleton_images()[:500]
+# for img in train_images:
+#     print(img.label)
+predicted_result=KNN(k, skeleton, train_images)
 print(predicted_result)

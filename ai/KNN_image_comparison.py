@@ -27,7 +27,8 @@ def KNN(k, new_data, train_images):
                 if new_data[n][j] == True:
                     test_count += 1
             vertical_pixels_count[j] = abs(train_count - test_count)
-        distance=np.dot(vertical_pixels_count,horizontal_pixels_count)
+        #distance=np.dot(vertical_pixels_count,horizontal_pixels_count)
+        distance = vertical_pixels_count.dot(horizontal_pixels_count)
         distance_metric = {}
         distance_metric['distance'] = distance
         distance_metric['label'] = train_object.label
@@ -44,5 +45,5 @@ def KNN(k, new_data, train_images):
             break
         dict_result[value['label']]+= 1
     sorted_counts = sorted(dict_result.items(), key=lambda x: x[1],reverse=True)
-    #print(sorted_counts)
+    print(sorted_counts)
     return sorted_counts[0][0]
