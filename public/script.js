@@ -33,9 +33,11 @@ function getPosition(mouseEvent, sigCanvas) {
 function initialize() {
   // get references to the canvas element as well as the 2D drawing context
   var sigCanvas = document.getElementById("canvas");
+  sigCanvas.width  = 56;
+  sigCanvas.height = 56;
   context = sigCanvas.getContext("2d");
   context.strokeStyle = "#ffffff"; //white
-  context.lineJoin = "round";
+  context.lineJoin = "round"; //miter
   context.lineWidth = 4; //2
 
   // Add background image to canvas - remove for blank white canvas
@@ -189,7 +191,7 @@ function convertCanvasToImage (canvas) {
         document.getElementById("imageID_nn").appendChild(div1);
     });
 
-  $.post("/nn", //url
+  $.post("/svm", //url
     {
         img_data_url: image2.src
     },
