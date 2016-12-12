@@ -33,12 +33,12 @@ function getPosition(mouseEvent, sigCanvas) {
 function initialize() {
   // get references to the canvas element as well as the 2D drawing context
   var sigCanvas = document.getElementById("canvas");
-  sigCanvas.width  = 56;
-  sigCanvas.height = 56;
+  sigCanvas.width  = 112;
+  sigCanvas.height = 112;
   context = sigCanvas.getContext("2d");
   context.strokeStyle = "#ffffff"; //white
   context.lineJoin = "round"; //miter
-  context.lineWidth = 4; //2
+  context.lineWidth = 6; //2
 
   // Add background image to canvas - remove for blank white canvas
   // var background = new Image();

@@ -34,6 +34,6 @@ h1, h2 {
 .result span {
   margin: 10px;
   font-weight: bold;
-  font-size: 14px;
-  color: black;
+  font-size: 40px;
+  color: blue;
 }
