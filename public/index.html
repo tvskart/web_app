@@ -12,9 +12,17 @@
         <input type="submit" value="Clear Canvas" id="clearbutton" onclick="clearCanvas(canvas);">
         <button id="doItID" onclick="convertCanvasToImage(canvas);">Create Image</button>
         <canvas id="canvas" width="56px" height="56px" style="background-color:black;"></canvas>     
-    <div id="imageID">
-        
-    </div>             
+    <div>
+        <div><h2>Results</h2></div>
+        <div id="imageID_nn">
+            <p>Neural Net</p>
+            
+        </div>
+        <div id="imageID_svm">
+            <p>SVM reference</p>
+
+        </div>
+    </div>
     </div>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>

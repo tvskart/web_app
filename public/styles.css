@@ -1,12 +1,12 @@
-h1 {
+h1, h2 {
     color: blue;
     text-align: center;
 }
 
 #iframe {
   position: absolute;
-  left: 250px;
-  top: 250px;
+  left: 40%;
+  top: 15%;
 }
 
 #canvas {
@@ -15,7 +15,25 @@ h1 {
   margin: 10px;
 }
 
-#imageID { 
+#imageID_nn, #imageID_svm { 
     overflow-y: scroll;
     height: 600px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px dotted black;    
+}
+
+#imageID_nn {
+  float: left;
+}
+
+#imageID_svm {
+  float: right;
+}
+
+.result span {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
 }

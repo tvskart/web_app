@@ -36,7 +36,7 @@ function initialize() {
   context = sigCanvas.getContext("2d");
   context.strokeStyle = "#ffffff"; //white
   context.lineJoin = "round";
-  context.lineWidth = 2;
+  context.lineWidth = 4; //2
 
   // Add background image to canvas - remove for blank white canvas
   // var background = new Image();
@@ -161,23 +161,42 @@ function clearCanvas(canvas) {
 }
 
 function convertCanvasToImage (canvas) {
-  var image = new Image();
-  image.src = canvas.toDataURL("image/jpeg",  1.0);
-  console.log(image.src);
+  var image1 = new Image();
+  image1.src = canvas.toDataURL("image/jpeg",  1.0);
+  var image2 = new Image();
+  image2.src = canvas.toDataURL("image/jpeg",  1.0);  
+  console.log(image1.src);
   // var div = $('<div></div>').addClass('result');
-  var div = document.createElement('div');
-  var result = document.createElement('span');
-  div.className = 'result';
-  div.appendChild(image);
-  $.post("/knn", //url
+  var div1 = document.createElement('div');
+  var result1 = document.createElement('span');
+  div1.className = 'result';
+  div1.appendChild(image1);
+
+  var div2 = document.createElement('div');
+  var result2 = document.createElement('span');
+  div2.className = 'result';
+  div2.appendChild(image2);
+
+  //2 lists appended to - Neural Net & ...
+  $.post("/nn",
     {
-        img_data_url: image.src
+        img_data_url: image1.src
     },
     function(data, status){
         // alert("Data: " + data + "\nStatus: " + status);
-        result.textContent = data.result;
-        div.appendChild(result);
-        document.getElementById("imageID").appendChild(div);
+        result1.textContent = data.result;
+        div1.appendChild(result1);
+        document.getElementById("imageID_nn").appendChild(div1);
     });
-  // return image;
+
+  $.post("/nn", //url
+    {
+        img_data_url: image2.src
+    },
+    function(data, status){
+        // alert("Data: " + data + "\nStatus: " + status);
+        result2.textContent = data.result;
+        div2.appendChild(result2);
+        document.getElementById("imageID_svm").appendChild(div2);
+    });
 }
