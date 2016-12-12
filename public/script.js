@@ -189,6 +189,9 @@ function convertCanvasToImage (canvas) {
         result1.textContent = data.result;
         div1.appendChild(result1);
         document.getElementById("imageID_nn").appendChild(div1);
+      $("#imageID_nn").animate({
+          scrollTop: $("#imageID_nn")[0].scrollHeight
+      }, 300);
     });
 
   $.post("/svm", //url
@@ -200,5 +203,8 @@ function convertCanvasToImage (canvas) {
         result2.textContent = data.result;
         div2.appendChild(result2);
         document.getElementById("imageID_svm").appendChild(div2);
+      $("#imageID_svm").animate({
+          scrollTop: $("#imageID_svm")[0].scrollHeight
+      }, 300);        
     });
 }
